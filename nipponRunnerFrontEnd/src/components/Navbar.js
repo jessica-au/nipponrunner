@@ -5,10 +5,10 @@ const Navbar = (props) => {
     return (
         <nav className="navbar">
             <div className="navContainer">
-                <Link to="/">nippon runner</Link>
-                <button className="navToggle" type="button" data-toggle="collapse" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navTogglerIcon"></span>
-                </button>
+                <Link to="/">Gakkou</Link>
+                {/* <button className="navToggle" type="button" data-toggle="collapse" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> */}
+                    {/* <span className="navTogglerIcon"></span>
+                </button> */}
                 <div className="navbarActual">
                     
                         <p className="navHomeLink">
@@ -29,7 +29,7 @@ const Navbar = (props) => {
                         :
                         <>
                         <p className="navSignupLink">
-                            <NavLink to="/signup">Sign Up!</NavLink>
+                            <NavLink to="/signup">Sign Up</NavLink>
                         </p>
                         <p className="navLoginLink">
                             <NavLink to="/login">Login</NavLink>
