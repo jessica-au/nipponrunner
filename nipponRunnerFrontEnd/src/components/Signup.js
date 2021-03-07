@@ -55,7 +55,7 @@ const Signup  = () => {
 
     return (
         <div className="signupComponent">
-            <h2>Signup</h2>
+            <h3>Signup</h3>
             <form onSubmit={handleSubmit}>
                 <div className="signupFormUsername">
                     <label htmlFor="username">username</label>
