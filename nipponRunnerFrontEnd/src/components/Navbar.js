@@ -4,42 +4,45 @@ const Navbar = (props) => {
     console.log(`>>>> inside Navbar component`)
     return (
         <nav className="navbar">
-            <div className="navContainer">
-                <Link to="/">Gakkou</Link>
-                {/* <button className="navToggle" type="button" data-toggle="collapse" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> */}
-                    {/* <span className="navTogglerIcon"></span>
-                </button> */}
-                <div className="navbarActual">
-                    
-                        <p className="navHomeLink">
-                            <NavLink exact to="/">Home</NavLink>
-                        </p>
-                        <p className="navAboutLink">
-                            <NavLink to="/about">About</NavLink>
-                        </p>
-                        {props.isAuth ?
-                        <>
-                        <p className="navProfileLink">
-                            <NavLink to="/profile">Profile</NavLink>
-                        </p>
-                        <p className="navLogoutLink">
-                            <span onClick={props.handleLogout}>Logout</span>
-                        </p>
-                        </>
-                        :
-                        <>
-                        <p className="navSignupLink">
-                            <NavLink to="/signup">Sign Up</NavLink>
-                        </p>
-                        <p className="navLoginLink">
-                            <NavLink to="/login">Login</NavLink>
-                        </p>
-                        </>
-                    }
-                    
+            {/* <div className="navContainer"> */}
+            <div className="navHomeLink">
+            <NavLink to="/">Gakkou</NavLink>
                 </div>
+                {/* <button className="navToggle" type="button" data-toggle="collapse" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> */ }
+    {/* <span className="navTogglerIcon"></span>
+                </button> */}
+    {/* <div className="navbarActual"> */ }
+                    
+                        <div className="navHomeLink">
+                            <NavLink exact to="/">Home</NavLink>
+                        </div>
+                        <div className="navAboutLink">
+                            <NavLink to="/about">About</NavLink>
+                        </div>
+    {
+        props.isAuth ?
+        <>
+            <div className="navProfileLink">
+                <NavLink to="/profile">Profile</NavLink>
             </div>
-        </nav>
+            <div className="navLogoutLink">
+                <span onClick={props.handleLogout}>Logout</span>
+            </div>
+        </>
+        :
+        <>
+            <div className="navSignupLink">
+                <NavLink to="/signup">Sign Up</NavLink>
+            </div>
+            <div className="navLoginLink">
+                <NavLink to="/login">Login</NavLink>
+            </div>
+        </>
+    }
+
+    {/* </div> */ }
+    {/* </div> */ }
+        </nav >
     )
 }
 
