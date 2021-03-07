@@ -4,7 +4,7 @@ const express = require('express') //express package
 const cors = require('cors') //cross origin resouce sharing allows non-origin api fetching which is usually blocked by browsers
 const passport = require('passport') //passport package to authenticate users
 require('./config/passport')(passport) //sets custom configuration for passport
-const routes = require('./routes') //route directory to clean up requests
+const routes = require('./routes') //route directory to clean up request 
 
 //set up app
 const app = express() //setting express invocation on "app" variable
