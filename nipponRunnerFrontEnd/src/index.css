@@ -1,3 +1,23 @@
 body {
   text-align: center;
 }
+
+.navbar {
+  overflow: hidden;
+  background-color: #1E81F5;
+}
+
+.navbar a {
+  font-family: Arial, Helvetica, sans-serif;
+  float: left;
+  display: inline;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #FF3636;
+}

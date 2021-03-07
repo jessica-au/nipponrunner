@@ -10,33 +10,33 @@ const Navbar = (props) => {
                     <span className="navTogglerIcon"></span>
                 </button>
                 <div className="navbarActual">
-                    <ul>
-                        <li className="navHomeLink">
+                    
+                        <p className="navHomeLink">
                             <NavLink exact to="/">Home</NavLink>
-                        </li>
-                        <li className="navAboutLink">
+                        </p>
+                        <p className="navAboutLink">
                             <NavLink to="/about">About</NavLink>
-                        </li>
+                        </p>
                         {props.isAuth ?
                         <>
-                        <li className="navProfileLink">
+                        <p className="navProfileLink">
                             <NavLink to="/profile">Profile</NavLink>
-                        </li>
-                        <li className="navLogoutLink">
+                        </p>
+                        <p className="navLogoutLink">
                             <span onClick={props.handleLogout}>Logout</span>
-                        </li>
+                        </p>
                         </>
                         :
                         <>
-                        <li className="navSignupLink">
+                        <p className="navSignupLink">
                             <NavLink to="/signup">Sign Up!</NavLink>
-                        </li>
-                        <li className="navLoginLink">
+                        </p>
+                        <p className="navLoginLink">
                             <NavLink to="/login">Login</NavLink>
-                        </li>
+                        </p>
                         </>
                     }
-                    </ul>
+                    
                 </div>
             </div>
         </nav>
