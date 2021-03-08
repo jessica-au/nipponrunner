@@ -21,8 +21,7 @@ app.get('/api/', (req, res) => {
     res.json({ name: 'nippon runner', greeting: 'irashaimase!', author: 'Jessica Au and Leo Brooks', message: 'built in part by utilizing SEIR111 mern auth back end template'})
 })
 
-app.use('/api/examples', routes.example)
-app.use('/api/users', routers.user)
+app.use('/api/users', routes.user)
 
 //server running
 const server = app.listen(PORT, console.log(`🎧you are now tuned in to WSEI ${PORT} AM/FM radio🎧`))
