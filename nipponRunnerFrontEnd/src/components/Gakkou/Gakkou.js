@@ -7,7 +7,7 @@ const Gakkou = () => {
         <div className="gakkou">
             <h1>Okaeri! Welcome!</h1>
             <div className="information">
-                <Hiragana />
+                
             </div>
         </div>
     )
