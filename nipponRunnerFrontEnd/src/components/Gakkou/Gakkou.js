@@ -1,4 +1,5 @@
 import React from 'react'
+import Hiragana from './Hiragana'
 
 const Gakkou = () => {
   
@@ -6,8 +7,7 @@ const Gakkou = () => {
         <div className="gakkou">
             <h1>Okaeri! Welcome!</h1>
             <div className="information">
-                <div> Gakkou </div>
-                <p>Begin Hiragana</p>
+                <Hiragana />
             </div>
         </div>
     )
