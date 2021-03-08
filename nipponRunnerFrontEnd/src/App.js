@@ -16,6 +16,8 @@ import Login from './components/Login'
 import Profile from './components/profile/Profile'
 import Footer from './components/Footer'
 import ProfileHiraStats from './components/profile/ProfileHiraStats';
+import Gakkou from './components/Gakkou/Gakkou' 
+
 
 //Private routes for logged in users
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -79,8 +81,11 @@ function App() {
           <Route
             path='/login'
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
+
           <PrivateRoute exact path='/profile' component={Profile} user={currentUser} handleLogout={handleLogout} />
           <PrivateRoute path='/profile/stats' component={ProfileHiraStats} user={currentUser} handleLogout={handleLogout} />
+          
+          <PrivateRoute path='/gakkou' component={ Gakkou } user={currentUser} handleLogout={handleLogout} />
           <Route exact path='/' component={Welcome} />
           <Route path='/about' component={About} />
         </Switch>
