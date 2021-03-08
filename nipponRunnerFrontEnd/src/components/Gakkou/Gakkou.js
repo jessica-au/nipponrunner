@@ -1,14 +1,13 @@
 import React from 'react'
+import Hiragana from './Hiragana'
 
 const Gakkou = () => {
   
     return (
         <div className="gakkou">
-            <h1>Okaeri</h1>
+            <h1>Okaeri! Welcome!</h1>
             <div className="information">
-                <h1> Gakkou </h1>
-                <p>Okaeri!</p>
-                <p>Begin Hiragana</p>
+                <Hiragana />
             </div>
         </div>
     )
