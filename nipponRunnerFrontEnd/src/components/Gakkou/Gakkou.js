@@ -4,10 +4,9 @@ const Gakkou = () => {
   
     return (
         <div className="gakkou">
-            <h1>Okaeri</h1>
+            <h1>Okaeri! Welcome!</h1>
             <div className="information">
-                <h1> Gakkou </h1>
-                <p>Okaeri!</p>
+                <div> Gakkou </div>
                 <p>Begin Hiragana</p>
             </div>
         </div>
