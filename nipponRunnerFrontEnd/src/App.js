@@ -1,6 +1,6 @@
 //Imports
-import React, {useEffect, useState} from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 
@@ -22,9 +22,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   console.log(`>>>> inside a private route`)
   return <Route {...rest} render={(props) => {
     return token ?
-    <Component {...rest}/> :
-    <Redirect to="/login/"/>}
-  }/>
+      <Component {...rest} /> :
+      <Redirect to="/login/" />
+  }
+  } />
 }
 
 //main parent component to render application
@@ -37,7 +38,7 @@ function App() {
   useEffect(() => {
     let token; //initializing token variable
 
-    if(!localStorage.getItem('jwtToken')){
+    if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false)
       console.log(`>>>> authentication set to false`)
     } else {
@@ -56,7 +57,7 @@ function App() {
 
   const handleLogout = () => {
     console.log(`>>>> inside handleLogout func`)
-    if(localStorage.getItem('jwtToken')){
+    if (localStorage.getItem('jwtToken')) {
       //removing token from localStorage for deauth of logged out nonuser
       localStorage.removeItem('jwtToken')
       setCurrentUser(null)
@@ -68,20 +69,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>にっぽんランナー</h1>
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated}/>
+      <div className="appNameHeader">
+        <div className="englishName">NipponRunner</div> <div className="japaneseName">にっぽんランナー</div> </div>
+      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="mainContainer">
         <Switch>
           <Route path='/signup' component={Signup} />
-          <Route 
-          path='/login'
-          render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
+          <Route
+            path='/login'
+            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />} />
           <PrivateRoute path='/profile' component={Profile} user={currentUser} handleLogout={handleLogout} />
           <Route exact path='/' component={Welcome} />
           <Route path='/about' component={About} />
         </Switch>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
