@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     console.log(`>>>> inside About component`)
     return (
-        <div>
+        <div className="information">
             <h1>About Page</h1>
             <h3>Rendering about page</h3>
             <p>Possible to use this as a welcome/landing page for application as 

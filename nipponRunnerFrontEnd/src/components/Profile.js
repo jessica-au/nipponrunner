@@ -14,7 +14,7 @@ const Profile = (props) => {
     }
 
     const userData = user ?
-    (<div>
+    (<div className="information">
         <h1> Profile </h1>
         <p>Username: {username}</p>
         <p>Experience: {daysLogged}</p>
