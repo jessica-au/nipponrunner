@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfileHiraStats from './ProfileHiraStats'
 
 const Profile = (props) => {
     console.log(`>>>> inside Profile component`)
@@ -15,10 +16,10 @@ const Profile = (props) => {
 
     const userData = user ?
     (<div className="information">
-        <h1> Profile </h1>
-        <p>Username: {username}</p>
-        <p>Experience: {daysLogged}</p>
-        <p>Progress Bar: {correctAns} - {incorrectAns}</p>
+        <h1> Profile (プロフィール) </h1>
+        <p>Username (なまえ) | {username}</p>
+        <p>Experience (けいけん) | {daysLogged}</p>
+        <p>Proficiency (のうりょく) | {{correctAns} - {incorrectAns}}</p>
     </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
@@ -31,7 +32,23 @@ const Profile = (props) => {
 
     return (
         <div className="profilePage">
-            {user ? userData : errorDiv()}
+            <div className="profileInfo">
+                {user ? userData : errorDiv()}
+            </div>
+
+            <Link to="/">
+                <button type="button" className="profileHomeButton">
+                    Home
+                </button>
+            </Link>
+
+            <Link to="/">
+                <button type="button" className="profileGakkouButton">
+                    がっこう
+                </button>
+            </Link>
+
+            <ProfileHiraStats/>
         </div>
     )
 }
