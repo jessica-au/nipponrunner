@@ -30,7 +30,7 @@ const Login = (props) => {
         axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
         .then(response => {
             console.log(`>>>>inside handleSubmit reponse block`)
-            const { token } = response.userData
+            const { token } = response.data
             //save token to localStorage
             localStorage.setItem('jwtToken', token)
             //set token to header
