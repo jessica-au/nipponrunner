@@ -8,10 +8,6 @@ const Navbar = (props) => {
             <div className="navHomeLink">
             <NavLink to="/">Gakkou</NavLink>
                 </div>
-                {/* <button className="navToggle" type="button" data-toggle="collapse" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> */ }
-    {/* <span className="navTogglerIcon"></span>
-                </button> */}
-    {/* <div className="navbarActual"> */ }
                     
                         <div className="navHomeLink">
                             <NavLink exact to="/">Home</NavLink>
