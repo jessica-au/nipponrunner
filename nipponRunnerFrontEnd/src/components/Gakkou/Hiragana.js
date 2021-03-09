@@ -1,8 +1,11 @@
 //imports
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+
+const { REACT_APP_SERVER_URL } = process.env;
+
 
 
 //functions
@@ -17,6 +20,20 @@ import axios from 'axios'
 
 
 const Hiragana = () => {
+const [ allHira, setAllHira ] = useState([]);
+
+useEffect(() => {
+    const fetchHira = async(req, res) => {
+        const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
+        console.log(response)
+        const data = await response.data
+        // console.log('data:', data)
+        setAllHira(data)
+    }
+    fetchHira();
+    // console.log({allHira})
+
+}, []);
 
     return (
         
