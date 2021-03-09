@@ -6,6 +6,8 @@ import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
 
+
+
 const Gakkou = (props) => {
   // const hira= axios.get(`${REACT_APP_SERVER_URL}/${req.body.bango}`);
   

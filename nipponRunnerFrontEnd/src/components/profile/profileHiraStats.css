@@ -3,20 +3,65 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
 }
 
 .hiraChart {
     display: flex;
-
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
 }
 
 .hiraChartLeft {
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
+}
+
+.hiraChartRight {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+    margin: 5px;
 }
+
+.charBox {
+    padding: 8px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: lightgrey;
+}
+
+/* .charBox {
+    padding: 8px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #cd7f32;
+} */
+
+/* .charBox {
+    padding: 8px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #c0c0c0;
+} */
+
+/* .charBox {
+    padding: 8px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #f2ca53;
+} */
