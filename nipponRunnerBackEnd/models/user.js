@@ -19,13 +19,16 @@ const userSchema = new Schema({
         type: Number,
         default: 0
     },
-    correctAnswers: {
-        type: Number,
-        default: 0
-    },
-    incorrectAnswers: {
-        type: Number,
-        default: 0
+    progress: {
+        id: {
+            type: Number,
+            required: true
+        }, 
+        value: {
+            type: Number,
+            default: 0,
+            required: true
+        }
     }
 })
 

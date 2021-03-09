@@ -22,7 +22,7 @@ app.get('/api/', (req, res) => {
 })
 
 app.use('/api/users', routes.user)
-
+app.use('/api/hira', routes.hira)
 //server running
 const server = app.listen(PORT, console.log(`🎧you are now tuned in to WSEI ${PORT} AM/FM radio🎧`))
 

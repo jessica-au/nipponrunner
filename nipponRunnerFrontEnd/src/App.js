@@ -8,15 +8,16 @@ import setAuthToken from './utils/setAuthToken';
 import './App.css';
 
 //Components
-import Welcome from './components/Welcome'
-import About from './components/About'
-import Navbar from './components/Navbar'
-import Signup from './components/Signup'
-import Login from './components/Login'
-import Profile from './components/profile/Profile'
-import Footer from './components/Footer'
+import Welcome from './components/Welcome';
+import About from './components/About';
+import Navbar from './components/Navbar';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Profile from './components/profile/Profile';
+import Footer from './components/Footer';
 import ProfileHiraStats from './components/profile/ProfileHiraStats';
-import Gakkou from './components/Gakkou/Gakkou' 
+import Gakkou from './components/Gakkou/Gakkou';
+import Hiragana from './components/Gakkou/Hiragana';
 
 
 //Private routes for logged in users
@@ -84,8 +85,8 @@ function App() {
 
           <PrivateRoute exact path='/profile' component={Profile} user={currentUser} handleLogout={handleLogout} />
           <PrivateRoute path='/profile/stats' component={ProfileHiraStats} user={currentUser} handleLogout={handleLogout} />
-          
-          <PrivateRoute path='/gakkou' component={ Gakkou } user={currentUser} handleLogout={handleLogout} />
+          <PrivateRoute exact path='/gakkou' component={ Gakkou } user={currentUser} handleLogout={handleLogout} />
+          <PrivateRoute path='/gakkou/hiragana' component={ Hiragana } user={currentUser} handleLogout={handleLogout} />
           <Route exact path='/' component={Welcome} />
           <Route path='/about' component={About} />
         </Switch>
