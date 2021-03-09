@@ -1,4 +1,17 @@
+//imports
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+//functions
+//function for clicking hira divs
+function Square(props) {
+    return (
+        <button className="hiraBox" onClick={props.onClick}>click
+        </button>
+    );
+}
+
 
 
 const Hiragana = (props) => {
