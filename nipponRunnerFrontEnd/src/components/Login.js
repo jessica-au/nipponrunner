@@ -29,6 +29,7 @@ const Login = (props) => {
         axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
         .then(response => {
             console.log(`>>>>inside handleSubmit reponse block`)
+
             console.log(response)
             const { token } = response.data
             //save token to localStorage

@@ -5,9 +5,9 @@ body {
   text-align: center;
   font-family: 'Fredoka One', cursive;
   /* background-image: url("./images/cute-japanese-senior-high-school-students-with-board-free-vector.jpg"); */
-  background-size: 100%;
+  /* background-size: 100%;
   background-repeat:no-repeat;
-  background-position:top;
+  background-position:top; */
   background-color: #47CACC;
   margin: 0;
   color: white;
@@ -21,7 +21,7 @@ h1, h2, h3 {
 .appNameHeader {
   background-color: #A7D676;
   position: relative;
-  padding: 1% 8%;
+  padding: 1% 2%;
   
 }
 
@@ -30,13 +30,13 @@ h1, h2, h3 {
   color: white;
   text-align: left;
   display: inline;
-  padding: 0 10px;
+  padding: 1% 2%;
 }
 
 .japaneseName {
   color: grey;
   display: inline;
-  padding: 0 10px;
+  padding: 1% 2%;
   font-weight: bold;
 }
 
@@ -67,9 +67,9 @@ h1, h2, h3 {
   position:absolute;
   background-color: #F8C78D;
   color: white;
-  width: 30%;
+  /* width: 30%; */
   padding: 1%;
-  margin: 5% 35%;
+  /* margin: 5% 35%; */
   border-radius: 8px;
   text-align: right;
 }
@@ -78,7 +78,8 @@ h1, h2, h3 {
   position: absolute;
   margin: 5% 5%;
   align-self: center;
-  width: 7c0%;
+
+  /* width: 100%; */
 }
 
 .hiraContainer {
@@ -86,8 +87,12 @@ h1, h2, h3 {
   padding: 2%;
   border-radius: 8px;
   text-align: center;
-  flex-direction: row;
+  flex-direction: column;
   
+}
+.hiraRow {
+  display:flex;
+  flex-direction: row;
 }
 
 .hiragana {
