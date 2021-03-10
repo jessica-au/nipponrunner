@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './profileHiraStats.css'
+const { REACT_APP_SERVER_URL } = process.env
+const axios = require('axios')
 
 const ProfileHiraStats = (props) => {
+
+    const [allHira, setAllHira] = useState([])
+
+    useEffect(() => {
+        const fetchHira = async() => {
+            const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
+            const data = response.data
+            setAllHira(data)
+        }
+        fetchHira()
+        console.log(allHira)
+    })
 
     return (
         <div className="hiraStats">
@@ -9,169 +23,169 @@ const ProfileHiraStats = (props) => {
                 <div className="hiraChartLeft">
 
                     <div className="row">
-                        <div className="charBox" id="vowelSoundsA">
+                        <div className="charBox" id="1">
                             あ
                         </div>
-                        <div className="charBox" id="vowelSoundsI">
+                        <div className="charBox" id="2">
                             い
                         </div>
-                        <div className="charBox" id="vowelSoundsU">
+                        <div className="charBox" id="3">
                             う
                         </div>
-                        <div className="charBox" id="vowelSoundsE">
+                        <div className="charBox" id="4">
                             え
                         </div>
-                        <div className="charBox" id="vowelSoundsO">
+                        <div className="charBox" id="5">
                             お
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="kSoundsA">
+                        <div className="charBox" id="6">
                             か
                         </div>
-                        <div className="charBox" id="kSoundsI">
+                        <div className="charBox" id="7">
                             き
                         </div>
-                        <div className="charBox" id="kSoundsU">
+                        <div className="charBox" id="8">
                             く
                         </div>
-                        <div className="charBox" id="kSoundsE">
+                        <div className="charBox" id="9">
                             け
                         </div>
-                        <div className="charBox" id="kSoundsO">
+                        <div className="charBox" id="10">
                             こ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="sSoundsA">
+                        <div className="charBox" id="11">
                             さ
                         </div>
-                        <div className="charBox" id="sSoundsI">
+                        <div className="charBox" id="12">
                             し
                         </div>
-                        <div className="charBox" id="sSoundsU">
+                        <div className="charBox" id="13">
                             す
                         </div>
-                        <div className="charBox" id="sSoundsE">
+                        <div className="charBox" id="14">
                             せ
                         </div>
-                        <div className="charBox" id="sSoundsO">
+                        <div className="charBox" id="15">
                             そ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="tSoundsA">
+                        <div className="charBox" id="16">
                             た
                         </div>
-                        <div className="charBox" id="tSoundsI">
+                        <div className="charBox" id="17">
                             ち
                         </div>
-                        <div className="charBox" id="tSoundsU">
+                        <div className="charBox" id="18">
                             つ
                         </div>
-                        <div className="charBox" id="tSoundsE">
+                        <div className="charBox" id="19">
                             て
                         </div>
-                        <div className="charBox" id="tSoundsO">
+                        <div className="charBox" id="20">
                             と
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="nSoundsA">
+                        <div className="charBox" id="21">
                             な
                         </div>
-                        <div className="charBox" id="nSoundsI">
+                        <div className="charBox" id="22">
                             に
                         </div>
-                        <div className="charBox" id="nSoundsU">
+                        <div className="charBox" id="23">
                             ぬ
                         </div>
-                        <div className="charBox" id="nSoundsE">
+                        <div className="charBox" id="24">
                             ね
                         </div>
-                        <div className="charBox" id="nSoundsO">
+                        <div className="charBox" id="25">
                             の
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="hSoundsA">
+                        <div className="charBox" id="26">
                             は
                         </div>
-                        <div className="charBox" id="hSoundsI">
+                        <div className="charBox" id="27">
                             ひ
                         </div>
-                        <div className="charBox" id="hSoundsU">
+                        <div className="charBox" id="28">
                             ふ
                         </div>
-                        <div className="charBox" id="hSoundsE">
+                        <div className="charBox" id="29">
                             へ
                         </div>
-                        <div className="charBox" id="hSoundsO">
+                        <div className="charBox" id="30">
                             ほ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="mSoundsA">
+                        <div className="charBox" id="31">
                             ま
                         </div>
-                        <div className="charBox" id="mSoundsI">
+                        <div className="charBox" id="32">
                             み
                         </div>
-                        <div className="charBox" id="mSoundsU">
+                        <div className="charBox" id="33">
                             む
                         </div>
-                        <div className="charBox" id="mSoundsE">
+                        <div className="charBox" id="34">
                             め
                         </div>
-                        <div className="charBox" id="mSoundsO">
+                        <div className="charBox" id="35">
                             も
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="ySoundsA">
+                        <div className="charBox" id="36">
                             や
                         </div>
 
                         <div className="charBox"></div>
 
-                        <div className="charBox" id="ySoundsU">
+                        <div className="charBox" id="37">
                             ゆ
                         </div>
 
                         <div className="charBox"></div>
 
-                        <div className="charBox" id="ySoundsO">
+                        <div className="charBox" id="38">
                             よ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="rSoundsA">
+                        <div className="charBox" id="39">
                             ら
                         </div>
-                        <div className="charBox" id="rSoundsI">
+                        <div className="charBox" id="40">
                             り
                         </div>
-                        <div className="charBox" id="rSoundsU">
+                        <div className="charBox" id="41">
                             る
                         </div>
-                        <div className="charBox" id="rSoundsE">
+                        <div className="charBox" id="42">
                             れ
                         </div>
-                        <div className="charBox" id="rSoundsO">
+                        <div className="charBox" id="43">
                             ろ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="wSoundsA">
+                        <div className="charBox" id="44">
                             わ
                         </div>
 
@@ -179,7 +193,7 @@ const ProfileHiraStats = (props) => {
                         <div className="charBox"></div>
                         <div className="charBox"></div>
 
-                        <div className="charBox" id="wSoundsO">
+                        <div className="charBox" id="45">
                             を
                         </div>
                     </div>
@@ -187,7 +201,7 @@ const ProfileHiraStats = (props) => {
                     <div className="row">
                         <div className="charBox"></div>
                         <div className="charBox"></div>
-                        <div className="charBox" id="nCharacter">
+                        <div className="charBox" id="46">
                             ん
                         </div>
                         <div className="charBox"></div>
@@ -196,91 +210,91 @@ const ProfileHiraStats = (props) => {
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="gSoundsA">
+                        <div className="charBox" id="47">
                             が
                         </div>
-                        <div className="charBox" id="gSoundsI">
+                        <div className="charBox" id="48">
                             ぎ
                         </div>
-                        <div className="charBox" id="gSoundsU">
+                        <div className="charBox" id="49">
                             ぐ
                         </div>
-                        <div className="charBox" id="gSoundsE">
+                        <div className="charBox" id="50">
                             げ
                         </div>
-                        <div className="charBox" id="gSoundsO">
+                        <div className="charBox" id="51">
                             ご
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="zSoundsA">
+                        <div className="charBox" id="52">
                             ざ
                         </div>
-                        <div className="charBox" id="zSoundsI">
+                        <div className="charBox" id="53">
                             じ
                         </div>
-                        <div className="charBox" id="zSoundsU">
+                        <div className="charBox" id="54">
                             ず
                         </div>
-                        <div className="charBox" id="zSoundsE">
+                        <div className="charBox" id="55">
                             ぜ
                         </div>
-                        <div className="charBox" id="zSoundsO">
+                        <div className="charBox" id="56">
                             ぞ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="dSoundsA">
+                        <div className="charBox" id="57">
                             だ
                         </div>
-                        <div className="charBox" id="dSoundsI">
+                        <div className="charBox" id="58">
                             ぢ
                         </div>
-                        <div className="charBox" id="dSoundsU">
+                        <div className="charBox" id="59">
                             づ
                         </div>
-                        <div className="charBox" id="dSoundsE">
+                        <div className="charBox" id="60">
                             で
                         </div>
-                        <div className="charBox" id="dSoundsO">
+                        <div className="charBox" id="61">
                             ど
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="bSoundsA">
+                        <div className="charBox" id="62">
                             ば
                         </div>
-                        <div className="charBox" id="bSoundsI">
+                        <div className="charBox" id="63">
                             び
                         </div>
-                        <div className="charBox" id="bSoundsU">
+                        <div className="charBox" id="64">
                             ぶ
                         </div>
-                        <div className="charBox" id="bSoundsE">
+                        <div className="charBox" id="65">
                             べ
                         </div>
-                        <div className="charBox" id="bSoundsO">
+                        <div className="charBox" id="66">
                             ぼ
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="rSoundsA">
+                        <div className="charBox" id="67">
                             ぱ
                         </div>
-                        <div className="charBox" id="rSoundsI">
+                        <div className="charBox" id="68">
                             ぴ
                         </div>
-                        <div className="charBox" id="rSoundsU">
+                        <div className="charBox" id="69">
                             ぷ
                         </div>
-                        <div className="charBox" id="rSoundsE">
+                        <div className="charBox" id="70">
                             ぺ
                         </div>
-                        <div className="charBox" id="rSoundsO">
+                        <div className="charBox" id="71">
                             ぽ
                         </div>
                     </div>
@@ -291,133 +305,133 @@ const ProfileHiraStats = (props) => {
                     <div className="morphSounds">
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsKya">
+                            <div className="charBox" id="72">
                                 きゃ
                             </div>
-                            <div className="charBox" id="morphSoundsKyu">
+                            <div className="charBox" id="73">
                                 きゅ
                             </div>
-                            <div className="charBox" id="morphSoundsKyo">
+                            <div className="charBox" id="74">
                                 きょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsGya">
+                            <div className="charBox" id="75">
                                 ぎゃ
                             </div>
-                            <div className="charBox" id="morphSoundsGyu">
+                            <div className="charBox" id="76">
                                 ぎゅ
                             </div>
-                            <div className="charBox" id="morphSoundsGyo">
+                            <div className="charBox" id="77">
                                 ぎょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsSya">
+                            <div className="charBox" id="78">
                                 しゃ
                             </div>
-                            <div className="charBox" id="morphSoundsSyu">
+                            <div className="charBox" id="79">
                                 しゅ
                             </div>
-                            <div className="charBox" id="morphSoundsSyo">
+                            <div className="charBox" id="80">
                                 しょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsJya">
+                            <div className="charBox" id="81">
                                 じゃ
                             </div>
-                            <div className="charBox" id="morphSoundsJyu">
+                            <div className="charBox" id="82">
                                 じゅ
                             </div>
-                            <div className="charBox" id="morphSoundsJyo">
+                            <div className="charBox" id="83">
                                 じょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsCya">
+                            <div className="charBox" id="84">
                                 ちゃ
                             </div>
-                            <div className="charBox" id="morphSoundsCyu">
+                            <div className="charBox" id="85">
                                 ちゅ
                             </div>
-                            <div className="charBox" id="morphSoundsCyo">
+                            <div className="charBox" id="86">
                                 ちょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsNya">
+                            <div className="charBox" id="87">
                                 にゃ
                             </div>
-                            <div className="charBox" id="morphSoundsNyu">
+                            <div className="charBox" id="88">
                                 にゅ
                             </div>
-                            <div className="charBox" id="morphSoundsNyo">
+                            <div className="charBox" id="89">
                                 にょ
                             </div>
                         </div>
                         
                         <div className="row">
-                            <div className="charBox" id="morphSoundsHya">
+                            <div className="charBox" id="90">
                                 ひゃ
                             </div>
-                            <div className="charBox" id="morphSoundsHyu">
+                            <div className="charBox" id="91">
                                 ひゅ
                             </div>
-                            <div className="charBox" id="morphSoundsHyo">
+                            <div className="charBox" id="92">
                                 ひょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsBya">
+                            <div className="charBox" id="93">
                                 びゃ
                             </div>
-                            <div className="charBox" id="morphSoundsByu">
+                            <div className="charBox" id="94">
                                 びゅ
                             </div>
-                            <div className="charBox" id="morphSoundsByo">
+                            <div className="charBox" id="95">
                                 びょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsPya">
+                            <div className="charBox" id="96">
                                 ぴゃ
                             </div>
-                            <div className="charBox" id="morphSoundsPyu">
+                            <div className="charBox" id="97">
                                 ぴゅ
                             </div>
-                            <div className="charBox" id="morphSoundsPyo">
+                            <div className="charBox" id="98">
                                 ぴょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsMya">
+                            <div className="charBox" id="99">
                                 みゃ
                             </div>
-                            <div className="charBox" id="morphSoundsMyu">
+                            <div className="charBox" id="100">
                                 みゅ
                             </div>
-                            <div className="charBox" id="morphSoundsMyo">
+                            <div className="charBox" id="101">
                                 みょ
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="morphSoundsRya">
+                            <div className="charBox" id="102">
                                 りゃ
                             </div>
-                            <div className="charBox" id="morphSoundsRyu">
+                            <div className="charBox" id="103">
                                 りゅ
                             </div>
-                            <div className="charBox" id="morphSoundsRyo">
+                            <div className="charBox" id="104">
                                 りょ
                             </div>
                         </div>
