@@ -12,7 +12,8 @@ const hiraShow = async (req, res) => {
     try {
         console.log('************ in hira controller route')
         const allHira = await db.Hira.find()
-        console.log(allHira)
+        // console.log(allHira)
+        res.json(allHira)
     } catch (e) {
         console.log('error: ', e)
     }
