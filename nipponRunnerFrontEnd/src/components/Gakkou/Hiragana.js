@@ -1,7 +1,5 @@
 //imports
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 const { REACT_APP_SERVER_URL } = process.env;
@@ -9,14 +7,15 @@ const { REACT_APP_SERVER_URL } = process.env;
 const Hiragana = (props) => {
     //declare state variables
     const [allHira, setAllHira] = useState([]);
-    //pairingHira will allow boolean logic for matching ji to romaji
+    //pairingHira will allow boolean logic for matching ji to romaji 
+    // set as bango to allow updating user ..stuff
     const [pairingHira, setPairingHira] = useState();
     //hiraGrouping will be determined by function 5/5 match -> continue to next hiraGrouping
     const [hiraGrouping, setHiraGrouping] = useState();
     //
     const [pairingType, setPairingType] = useState();
 
-    //set up click function to set pairingHira value to e.target.value, will be used in boolean to determine if correct match between romaji and ji
+    //set up click function to set pairingHira value to key from button, will be used in boolean to determine if correct match between romaji and ji
     const handleClick = ( incomingHira, incomingType) => {
         if (pairingType && pairingHira) {
 //make sure to check three conditionals: ji & romaji correct, ji & romaji incorrect, and same type
