@@ -52,7 +52,8 @@ const login = async (req, res) => {
             const payload = {
                 id: foundUser.id,
                 email: foundUser.email,
-                username: foundUser.username
+                username: foundUser.username,
+                progress: foundUser.progress
             }
             jwt.sign(payload, JWT_SECRET, { expiresIn: 3420 }, (err, token) => { 
                 if(err){
@@ -73,8 +74,32 @@ const login = async (req, res) => {
 
 const profile = (req,res) => {
     console.log(`>>>> inside user ctrlr profile`)
-    const { id, username, email } = req
-    res.json({ id, username, email })
+    const { id, username, email, experience, progress } = req
+    res.json({ id, username, email, experience, progress })
 }
 
-module.exports = { test, register, login, profile }
+const info = (req,res) => {
+    console.log(`>>>> inside user ctrlr user`)
+    const { username, experience, progress } = req
+    res.json({ username, experience, progress })
+}
+
+const update = (req, res) => {
+    console.log(`>>>> inside user ctrlr updateUser`)
+     db.User.findOneAndUpdate(req.body.email, req.body, (err, updateUser) => {
+        if (err) console.log(err)
+        updateUser.save()
+        console.log(updateUser.progress)
+        res.json(updateUser)
+    })
+}
+
+const user = (req, res) => {
+    console.log(`>>>> inside user ctrlr thisUser`)
+    db.User.findOne({_id: req.params.id}, (err, oneUser) => {
+        if (err) console.log(err)
+        res.json(oneUser)
+    })
+}
+
+module.exports = { test, register, login, profile, info, update, user }
