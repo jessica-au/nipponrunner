@@ -18,7 +18,7 @@ const Gakkou = (props) => {
             <div className="information">
             <Link to="/gakkou/hiragana">
                 <button type="button" className="hiraButton">
-                    Hiragana
+                   Learn Hiragana
                 </button>
             </Link>
             </div>
