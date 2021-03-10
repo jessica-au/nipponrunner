@@ -6,72 +6,62 @@ import axios from 'axios'
 
 const { REACT_APP_SERVER_URL } = process.env;
 
+const Hiragana = (props) => {
+    //declare state variables
+    const [allHira, setAllHira] = useState([]);
+    //pairingHira will allow boolean logic for matching ji to romaji
+    const [pairingHira, setPairingHira] = useState();
+    //hiraGrouping will be determined by function 5/5 match -> continue to next hiraGrouping
+    const [hiraGrouping, setHiraGrouping] = useState();
+    //
+    const [pairingType, setPairingType] = useState();
 
+    //set up click function to set pairingHira value to e.target.value, will be used in boolean to determine if correct match between romaji and ji
+    const handleClick = ( incomingHira, incomingType) => {
+        if (pairingType && pairingHira) {
 
-//functions
-//function for clicking hira divs
-// function Square(props) {
-//     return (
-//         <button className="hiraBox" onClick={props.onClick}>click
-//         </button>
-//     );
-// }
-
-
-
-const Hiragana = () => {
-const [ allHira, setAllHira ] = useState([]);
-
-useEffect(() => {
-    const fetchHira = async(req, res) => {
-        const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
-        console.log(response)
-        const data = await response.data
-        // console.log('data:', data)
-        setAllHira(data)
+        } else {
+            setPairingHira(incomingHira);
+            setPairingType(incomingType);
+            console.log('this is pairing: ', incomingHira)
+        }
     }
-    fetchHira();
-    // console.log({allHira})
 
-}, []);
+
+    useEffect(() => {
+        const fetchHira = async (req, res) => {
+            const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
+            console.log(response)
+            const data = await response.data
+            // console.log('data:', data)
+            setAllHira(data)
+        }
+        fetchHira();
+        // console.log(allHira[0])
+
+    }, []);
+    //populating divs with .ji and .romaji data 5 hiragana at a time 
+    const copyHiras = allHira.slice(0, 5);
+    console.log(copyHiras)
+    const hiraList = copyHiras.map((copyHira) =>
+        <button className="hiragana" onClick={() => handleClick(copyHira, "ji")}>{copyHira.ji}</button>
+    );
+
+    const romajiList = copyHiras.map((copyHira) =>
+        <button className="hiragana" onClick={() => handleClick(copyHira, "romaji")}>{copyHira.romaji}</button>
+    );
+
+
 
     return (
-        
+
         <div className="hiraContainer">
             <div className="hiraRow">
-                <div className="hiragana">
-                    あ
+                {hiraList}
             </div>
-                <div className="hiragana">
-                    い
+            <div className="hiraRow">
+                {romajiList}
             </div>
-                <div className="hiragana">
-                    う
-            </div>
-                <div className="hiragana">
-                    え
-            </div>
-                <div className="hiragana">
-                    お
-             </div>
-            </div>
-            {/* <div className="hiraRow">
-                <div className="hiragana">
-                    a
-            </div>
-                <div className="hiragana">
-                    i
-            </div>
-                <div className="hiragana">
-                    u
-            </div>
-                <div className="hiragana">
-                    e
-            </div>
-                <div className="hiragana">
-                    o
-             </div>
-             </div> */}
         </div>
     );
 }
