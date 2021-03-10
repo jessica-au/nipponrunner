@@ -44,11 +44,11 @@ const Hiragana = (props) => {
     const copyHiras = allHira.slice(0, 5);
     console.log(copyHiras)
     const hiraList = copyHiras.map((copyHira) =>
-        <button className="hiragana" onClick={() => handleClick(copyHira, "ji")}>{copyHira.ji}</button>
+        <button key={copyHira.ji} className="hiragana" onClick={() => handleClick(copyHira, "ji")}>{copyHira.ji}</button>
     );
 
     const romajiList = copyHiras.map((copyHira) =>
-        <button className="hiragana" onClick={() => handleClick(copyHira, "romaji")}>{copyHira.romaji}</button>
+        <button key={copyHira.romaji} className="hiragana" onClick={() => handleClick(copyHira, "romaji")}>{copyHira.romaji}</button>
     );
 
 
