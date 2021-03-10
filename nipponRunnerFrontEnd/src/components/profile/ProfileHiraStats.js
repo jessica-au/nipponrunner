@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './profileHiraStats.css'
+const {REACT_APP_SERVER_URL} = 
 
 const ProfileHiraStats = (props) => {
 
@@ -8,22 +9,28 @@ const ProfileHiraStats = (props) => {
 
     console.log(user.progress[0])
     let thisClass = "charBox"
-
-    for( let i = 0; i < user.progress.length; i++ )  {
-        let thisProgress = user.progress[i].value
-        if(thisProgress > 10) {
-            thisClass = "charGold"
-            console.log(thisProgress)
-        } else if (thisProgress > 5 && thisProgress  <= 10) {
-            thisClass = "charSilver"
-            console.log(thisProgress)
-        } else if (thisProgress > 0 && thisProgress <= 5) {
-            thisClass = "charBronze"
-            console.log(thisProgress)
-        } else if (thisProgress < 0){
-            thisClass = "charBad"
+    useEffect({
+        changeColor = async() => {
+            const response = await axios.get(`{REACT_}`)
         }
-    }
+    })
+
+
+    // for( let i = 0; i < user.progress.length; i++ )  {
+    //     let thisProgress = user.progress[i].value
+    //     if(thisProgress > 10) {
+    //         thisClass = "charGold"
+    //         console.log(thisProgress)
+    //     } else if (thisProgress > 5 && thisProgress  <= 10) {
+    //         thisClass = "charSilver"
+    //         console.log(thisProgress)
+    //     } else if (thisProgress > 0 && thisProgress <= 5) {
+    //         thisClass = "charBronze"
+    //         console.log(thisProgress)
+    //     } else if (thisProgress < 0){
+    //         thisClass = "charBad"
+    //     }
+    // }
 
     return (
         <div className="hiraStats">
