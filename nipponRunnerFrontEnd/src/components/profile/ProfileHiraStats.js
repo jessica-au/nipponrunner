@@ -1,32 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './profileHiraStats.css'
-const { REACT_APP_SERVER_URL } = process.env
-const axios = require('axios')
 
 const ProfileHiraStats = (props) => {
 
-    const [allHira, setAllHira] = useState([])
+    const { handleLogout, user } = props
+    const { progress } = user
 
-    useEffect(() => {
-        const fetchHira = async() => {
-            const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
-            const data = response.data
-            setAllHira(data)
+    console.log(user.progress[0])
+    let thisClass = "charBox"
+
+    for( let i = 0; i < user.progress.length; i++ )  {
+        let thisProgress = user.progress[i].value
+        if(thisProgress > 10) {
+            thisClass = "charGold"
+            console.log(thisProgress)
+        } else if (thisProgress > 5 && thisProgress  <= 10) {
+            thisClass = "charSilver"
+            console.log(thisProgress)
+        } else if (thisProgress > 0 && thisProgress <= 5) {
+            thisClass = "charBronze"
+            console.log(thisProgress)
+        } else if (thisProgress < 0){
+            thisClass = "charBad"
         }
-        fetchHira()
-        console.log(allHira)
-    })
+    }
 
     return (
         <div className="hiraStats">
             <div className="hiraChart">
                 <div className="hiraChartLeft">
-
                     <div className="row">
-                        <div className="charBox" id="1">
+                        <div className={thisClass} id={user.progress[0]}>
                             あ
                         </div>
-                        <div className="charBox" id="2">
+                        <div className={thisClass} id={user.progress[1]}>
                             い
                         </div>
                         <div className="charBox" id="3">
