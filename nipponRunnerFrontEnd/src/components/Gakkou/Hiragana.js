@@ -19,7 +19,7 @@ const Hiragana = (props) => {
     //set up click function to set pairingHira value to e.target.value, will be used in boolean to determine if correct match between romaji and ji
     const handleClick = ( incomingHira, incomingType) => {
         if (pairingType && pairingHira) {
-
+//make sure to check three conditionals: ji & romaji correct, ji & romaji incorrect, and same type
         } else {
             setPairingHira(incomingHira);
             setPairingType(incomingType);
