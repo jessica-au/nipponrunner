@@ -90,6 +90,7 @@ const update = (req, res) => {
         if (err) console.log(err)
         updateUser.save()
         console.log(updateUser.progress)
+        console.log(updateUser)
         res.json(updateUser)
     })
 }
