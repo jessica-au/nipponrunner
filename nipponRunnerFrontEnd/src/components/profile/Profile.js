@@ -17,9 +17,18 @@ const Profile = (props) => {
 
     const userData = user ?
     (<div className="information">
-        <h1> Profile (プロフィール) </h1>
-        <p>Username (なまえ) | {username}</p>
-        <p>Experience (けいけん) | {experience}</p>
+        <div className="infoLeft">
+            <img className="infoImg" src="../images/sakura.png"/>
+            <Link to="/profile/stats">
+                <button type="button" className="profileStatsButton">
+                    View Progress (能力) 
+                </button>
+            </Link>
+        </div>
+        <div className="infoRight">
+            <p>Username (なまえ) | {username}</p>
+            <p>Experience (けいけん) | {experience}</p>
+        </div>
     </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
@@ -32,27 +41,23 @@ const Profile = (props) => {
 
     return (
         <div className="profilePage">
-            <div className="profileInfo">
+            <h1> Profile (プロフィール) </h1>
+            <div>
                 {user ? userData : errorDiv()}
             </div>
+            <div className="navButtons">
+                <Link to="/">
+                    <button type="button" className="profileHomeButton">
+                        Home (ホーム)
+                    </button>
+                </Link>
 
-            <Link to="/">
-                <button type="button" className="profileHomeButton">
-                    Home
-                </button>
-            </Link>
-
-            <Link to="/gakkou">
-                <button type="button" className="profileGakkouButton">
-                    がっこう
-                </button>
-            </Link>
-            
-            <Link to="/profile/stats">
-                <button type="button" className="profileStatsButton">
-                    View Progress (能力) 
-                </button>
-            </Link>
+                <Link to="/gakkou">
+                    <button type="button" className="profileGakkouButton">
+                        School (がっこう)
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }
