@@ -1,46 +1,40 @@
-import React, { useState } from 'react';
+import StatBox from './StatBox'
+import React, { useState, useEffect } from 'react';
 import './profileHiraStats.css'
-const {REACT_APP_SERVER_URL} = 
+import axios from 'axios'
+const {REACT_APP_SERVER_URL} = process.env
 
 const ProfileHiraStats = (props) => {
 
     const { handleLogout, user } = props
     const { progress } = user
+    const [allHira, setAllHira] = useState([])
 
-    console.log(user.progress[0])
-    let thisClass = "charBox"
-    useEffect({
-        changeColor = async() => {
-            const response = await axios.get(`{REACT_}`)
+    useEffect(() => {
+        const fetchHira = async (req, res) => {
+            const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
+            console.log(response)
+            const data = await response.data
+            setAllHira(data)
         }
+        fetchHira();
+
+    }, [])
+
+    const hiraArray = allHira.map((item, index) => {
+        return <StatBox key={index} item={item} progress={user.progress[index]}/>
     })
-
-
-    // for( let i = 0; i < user.progress.length; i++ )  {
-    //     let thisProgress = user.progress[i].value
-    //     if(thisProgress > 10) {
-    //         thisClass = "charGold"
-    //         console.log(thisProgress)
-    //     } else if (thisProgress > 5 && thisProgress  <= 10) {
-    //         thisClass = "charSilver"
-    //         console.log(thisProgress)
-    //     } else if (thisProgress > 0 && thisProgress <= 5) {
-    //         thisClass = "charBronze"
-    //         console.log(thisProgress)
-    //     } else if (thisProgress < 0){
-    //         thisClass = "charBad"
-    //     }
-    // }
 
     return (
         <div className="hiraStats">
             <div className="hiraChart">
                 <div className="hiraChartLeft">
                     <div className="row">
-                        <div className={thisClass} id={user.progress[0]}>
+                        {hiraArray}
+                        {/* <div className={"charBox"} id="1">
                             あ
                         </div>
-                        <div className={thisClass} id={user.progress[1]}>
+                        <div className="charBox" id="2">
                             い
                         </div>
                         <div className="charBox" id="3">
@@ -448,9 +442,9 @@ const ProfileHiraStats = (props) => {
                             <div className="charBox" id="104">
                                 りょ
                             </div>
-                        </div>
+    </div> */}
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     )
