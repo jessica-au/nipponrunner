@@ -117,6 +117,10 @@ button:clicked {
   border-color: black;
 }
 
+.disabledButton {
+  background-color: lightgrey;
+}
+
 
 .footer {
   background-color: #A7D676;

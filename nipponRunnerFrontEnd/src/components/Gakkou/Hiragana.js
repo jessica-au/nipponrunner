@@ -11,7 +11,7 @@ const Hiragana = (props) => {
     // set as bango to allow updating user ..stuff
     const [pairingHira, setPairingHira] = useState();
     const [pairingType, setPairingType] = useState();
-    
+
     //hiraGrouping will be determined by function 5/5 match -> continue to next hiraGrouping
     const [hiraPoints, setHiraPoints] = useState(0);
     const [matchedPair, setMatchedPair] = useState({})
@@ -24,10 +24,10 @@ const Hiragana = (props) => {
                 //condition: correct guess
                 //grey out or disable button AND reset pairingHira/Type
                 //also add point to state for hiraGrouping
-                setHiraPoints(hiraPoints +1);
+                setHiraPoints(hiraPoints + 1);
                 setPairingHira(null);
                 setPairingType(null);
-                setMatchedPair({...matchedPair, [incomingHira._id]: incomingHira});
+                setMatchedPair({ ...matchedPair, [incomingHira._id]: incomingHira });
                 console.log('matched')
             } else if (pairingType == incomingType) {
                 //condition: new button of same type clicked
@@ -49,7 +49,7 @@ const Hiragana = (props) => {
         }
     }
 
-console.log(matchedPair);
+    console.log(matchedPair);
 
     useEffect(() => {
         const fetchHira = async (req, res) => {
@@ -66,12 +66,30 @@ console.log(matchedPair);
     //populating divs with .ji and .romaji data 5 hiragana at a time 
     const copyHiras = allHira.slice(0, 5);
     //console.log(copyHiras)
-    const hiraList = copyHiras.map((copyHira) =>
-        <button disabled={matchedPair[copyHira._id]} key={copyHira.ji}  className="hiragana" onClick={() => handleClick(copyHira, "ji")}>{copyHira.ji}</button>
+    const hiraList = copyHiras.map((copyHira) => {
+        
+        const hasMatched = matchedPair[copyHira._id]
+
+        return <button
+            disabled={hasMatched}
+            key={copyHira.ji}
+            className={hasMatched ? "disabledButton" : "hiragana"}
+            onClick={() => handleClick(copyHira, "ji")}>
+            {copyHira.ji}</button>
+    }
     );
 
-    const romajiList = copyHiras.map((copyHira) =>
-        <button disabled={matchedPair[copyHira._id]} key={copyHira.romaji} className="hiragana" onClick={() => handleClick(copyHira, "romaji")}>{copyHira.romaji}</button>
+    const romajiList = copyHiras.map((copyHira) => {
+
+        const hasMatched = matchedPair[copyHira._id]
+
+        return <button
+            disabled={hasMatched}
+            key={copyHira.romaji}
+            className={hasMatched ? "disabledButton" : "hiragana"}
+            onClick={() => handleClick(copyHira, "romaji")}>
+            {copyHira.romaji}</button>
+    }
     );
 
 
