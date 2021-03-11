@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileHiraStats from './ProfileHiraStats'
+import './profile.css'
 
 const Profile = (props) => {
     console.log(`>>>> inside Profile component`)
@@ -41,7 +42,7 @@ const Profile = (props) => {
                 </button>
             </Link>
 
-            <Link to="/">
+            <Link to="/gakkou">
                 <button type="button" className="profileGakkouButton">
                     がっこう
                 </button>
