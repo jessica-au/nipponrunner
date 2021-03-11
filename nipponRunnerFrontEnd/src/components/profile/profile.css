@@ -1,13 +1,42 @@
+a {
+    text-decoration: none;
+}
+button {
+    padding: 20%;
+    font-size: 1.2rem;
+}
+
 .profilePage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1em;
+    height: 800px;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoLeft {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    flex-direction: column;
+}
+
+.infoRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .profileHomeButton {
     display: flex;
-    margin-top: 40%;
 }
 
 .profileGakkouButton {
@@ -16,4 +45,14 @@
 
 .profileStatsButton {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navButtons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    
 }
