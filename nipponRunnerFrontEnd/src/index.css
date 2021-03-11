@@ -100,10 +100,21 @@ h1, h2, h3 {
   width: 100px;
   height: 100px;
   font-size: 36px;
+  color: white;
+  border-style: none;
   padding: 3% 0;
   margin: 1%;
   background-color: #F8C78D;
   border-radius: 8px;
+}
+
+button:hover {
+  background-color: #A7D676;
+}
+
+button:clicked {
+  border-style:solid;
+  border-color: black;
 }
 
 
