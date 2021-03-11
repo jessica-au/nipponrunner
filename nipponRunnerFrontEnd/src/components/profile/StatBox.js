@@ -2,7 +2,7 @@ import React from 'react'
 
 function StatBox(props) {
     
-    const {key, item, progress} = props
+    const {item, progress} = props
     let color = "charBox"
 
     if(!progress){
@@ -21,7 +21,7 @@ function StatBox(props) {
     }
 
     return (
-        <div className={color} key={key}>
+        <div className={color}>
             {item.ji}
         </div>
     )
