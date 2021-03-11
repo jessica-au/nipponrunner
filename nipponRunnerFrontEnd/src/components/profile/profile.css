@@ -1,0 +1,19 @@
+.profilePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profileHomeButton {
+    display: flex;
+    margin-top: 40%;
+}
+
+.profileGakkouButton {
+    display: flex;
+}
+
+.profileStatsButton {
+    display: flex;
+}
