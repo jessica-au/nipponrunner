@@ -5,7 +5,7 @@ import ProfileHiraStats from './ProfileHiraStats'
 const Profile = (props) => {
     console.log(`>>>> inside Profile component`)
     const { handleLogout, user } = props
-    const { id, username, age, daysLogged, correctAns, incorrectAns, email, exp } = user
+    const { username, experience, progress, exp } = user
     const expirationTime = new Date(exp * 1000)
     let currentTime = Date.now()
 
@@ -18,8 +18,7 @@ const Profile = (props) => {
     (<div className="information">
         <h1> Profile (プロフィール) </h1>
         <p>Username (なまえ) | {username}</p>
-        <p>Experience (けいけん) | {daysLogged}</p>
-        <p>Proficiency (のうりょく) | {{correctAns} - {incorrectAns}}</p>
+        <p>Experience (けいけん) | {experience}</p>
     </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {

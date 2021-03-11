@@ -1,29 +1,37 @@
+import StatBox from './StatBox'
 import React, { useState, useEffect } from 'react';
 import './profileHiraStats.css'
-const { REACT_APP_SERVER_URL } = process.env
-const axios = require('axios')
+import axios from 'axios'
+const {REACT_APP_SERVER_URL} = process.env
 
 const ProfileHiraStats = (props) => {
 
+    const { handleLogout, user } = props
+    const { progress } = user
     const [allHira, setAllHira] = useState([])
 
     useEffect(() => {
-        const fetchHira = async() => {
+        const fetchHira = async (req, res) => {
             const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
-            const data = response.data
+            console.log(response)
+            const data = await response.data
             setAllHira(data)
         }
-        fetchHira()
-        console.log(allHira)
+        fetchHira();
+
+    }, [])
+
+    const hiraArray = allHira.map((item, index) => {
+        return <StatBox key={index} item={item} progress={user.progress[index]}/>
     })
 
     return (
         <div className="hiraStats">
             <div className="hiraChart">
                 <div className="hiraChartLeft">
-
                     <div className="row">
-                        <div className="charBox" id="1">
+                        {hiraArray}
+                        {/* <div className={"charBox"} id="1">
                             あ
                         </div>
                         <div className="charBox" id="2">
@@ -434,9 +442,9 @@ const ProfileHiraStats = (props) => {
                             <div className="charBox" id="104">
                                 りょ
                             </div>
-                        </div>
+    </div> */}
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     )
