@@ -46,7 +46,7 @@ h1, h2, h3 {
 }
 
 .navbar a {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   float: left;
   display: inline;
   font-size: 16px;
@@ -108,17 +108,38 @@ h1, h2, h3 {
   border-radius: 8px;
 }
 
+button {
+  background-color: #F8C78D;
+  border-style: none;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 2% 1%;
+  font-family: 'fredoka One', cursive;
+  color: white;
+  width: 150px;
+  height: 50px;
+}
+
 button:hover {
-  background-color: #A7D676;
+  background-color: #F9E2AE;
 }
 
 button:clicked {
   border-style:solid;
   border-color: black;
+  border-radius: 8px;
 }
 
-.disabledButton {
-  background-color: lightgrey;
+.disabledButton { 
+  width: 100px;
+  height: 100px;
+  font-size: 36px;
+  color: white;
+  border-style: none;
+  padding: 3% 0;
+  margin: 1%;
+  border-radius: 8px;
+  background-color: #A7D676;
 }
 
 
