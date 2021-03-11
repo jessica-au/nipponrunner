@@ -30,18 +30,17 @@ const ProfileHiraStats = (props) => {
             <div className="hiraChart">
                 <div className="hiraChartLeft">
                     <div className="row">
-                        {hiraArray}
-                        {/* <div className={"charBox"} id="1">
-                            あ
+                        <div id="1">
+                            {hiraArray[0]}
                         </div>
-                        <div className="charBox" id="2">
-                            い
+                        <div id="2">
+                            {hiraArray[1]}
                         </div>
-                        <div className="charBox" id="3">
-                            う
+                        <div id="3">
+                            {hiraArray[2] ? hiraArray[2] : "う"}
                         </div>
                         <div className="charBox" id="4">
-                            え
+                            {hiraArray[3] ? hiraArray[3] : "え"}
                         </div>
                         <div className="charBox" id="5">
                             お
@@ -442,7 +441,7 @@ const ProfileHiraStats = (props) => {
                             <div className="charBox" id="104">
                                 りょ
                             </div>
-    </div> */}
+    </div>
                     </div>
                 </div> 
             </div>
