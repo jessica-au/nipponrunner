@@ -1,6 +1,7 @@
 //imports
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+const shuffle = require('shuffle-array')
 
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -14,7 +15,7 @@ const Hiragana = (props) => {
 
     //hiraGrouping will be determined by function 5/5 match -> continue to next hiraGrouping
     const [hiraPoints, setHiraPoints] = useState(0);
-    const [hiraPage, setHiraPage ] = useState(0);
+    const [hiraPage, setHiraPage] = useState(0);
     const [matchedPair, setMatchedPair] = useState({})
 
 
@@ -53,14 +54,8 @@ const Hiragana = (props) => {
         }
     }
 
-    console.log(matchedPair);
+    //console.log(matchedPair);
 
-    // const completedFive = (incomingPoints) => {
-    //     //if points % 5 = 0 and points != 0, then move to next grouping
-    //     if ( ) {
-
-    //     }
-    // }
 
     useEffect(() => {
         const fetchHira = async (req, res) => {
@@ -76,42 +71,43 @@ const Hiragana = (props) => {
     }, []);
 
     useEffect(() => {
-        if ( Math.floor(hiraPoints / 5 ) !== hiraPage ) {
+        if (Math.floor(hiraPoints / 5) !== hiraPage) {
             setHiraPage(Math.floor(hiraPoints / 5))
         }
 
     }, [hiraPoints]);
 
     //populating divs with .ji and .romaji data 5 hiragana at a time 
-    const copyHiras = [ 
-     allHira.slice(0, 5), 
-     allHira.slice(5, 10),
-     allHira.slice(10, 15),
-     allHira.slice(15, 20),
-     allHira.slice(20, 25),
-     allHira.slice(25, 30),
-     allHira.slice(30, 35),
-     allHira.slice(35, 40),
-     allHira.slice(40, 45),
-     allHira.slice(45, 50),
-     allHira.slice(50, 55),
-     allHira.slice(55, 60),
-     allHira.slice(60, 65),
-     allHira.slice(65, 70),
-     allHira.slice(70, 75),
-     allHira.slice(75, 80),
-     allHira.slice(80, 85),
-     allHira.slice(85, 90),
-     allHira.slice(90, 95),
-     allHira.slice(95, 100),
-     allHira.slice(100, 105),
+    const copyHiras = [
+        allHira.slice(0, 5),
+        allHira.slice(5, 10),
+        allHira.slice(10, 15),
+        allHira.slice(15, 20),
+        allHira.slice(20, 25),
+        allHira.slice(25, 30),
+        allHira.slice(30, 35),
+        allHira.slice(35, 40),
+        allHira.slice(40, 45),
+        allHira.slice(45, 50),
+        allHira.slice(50, 55),
+        allHira.slice(55, 60),
+        allHira.slice(60, 65),
+        allHira.slice(65, 70),
+        allHira.slice(70, 75),
+        allHira.slice(75, 80),
+        allHira.slice(80, 85),
+        allHira.slice(85, 90),
+        allHira.slice(90, 95),
+        allHira.slice(95, 100),
+        allHira.slice(100, 105),
     ]
     //finish creating all slices for hiragana
 
-    //console.log(copyHiras)
+  
+    const hiraListShuffled = shuffle(copyHiras[hiraPage])
+    
 
-
-    const hiraList = copyHiras[hiraPage].map((copyHira) => {
+    const hiraList = hiraListShuffled.map((copyHira) => {
 
         const hasMatched = matchedPair[copyHira._id]
 
@@ -123,10 +119,13 @@ const Hiragana = (props) => {
             {copyHira.ji}</button>
     }
     );
+    
+    const romajiListShuffled = shuffle(copyHiras[hiraPage])
 
-    const romajiList = copyHiras[hiraPage].map((copyHira) => {
+    const romajiList = romajiListShuffled.map((copyHira) => {
 
         const hasMatched = matchedPair[copyHira._id]
+       
 
         return <button
             disabled={hasMatched}
@@ -136,14 +135,12 @@ const Hiragana = (props) => {
             {copyHira.romaji}</button>
     }
     )
-    
-
 
 
     return (
 
         <div className="hiraContainer">
-            <div>Match the hiragana character to its sound</div>
+            <div> Match the hiragana character to its sound</div>
             <div className="hiraRow">
                 {hiraList}
             </div>
