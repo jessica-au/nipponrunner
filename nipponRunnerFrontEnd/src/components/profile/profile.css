@@ -73,5 +73,8 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 200px;
-    
+}
+
+.valueValue {
+    display: none;
 }
