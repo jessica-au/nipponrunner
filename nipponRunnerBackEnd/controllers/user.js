@@ -86,7 +86,7 @@ const info = (req,res) => {
 
 const update = (req, res) => {
     console.log(`>>>> inside user ctrlr update`)
-     db.User.findOneAndUpdate(req.user, req.user.value, (err, updateUser) => {
+     db.User.findOneAndUpdate(req.user, req.user.progress, (err, updateUser) => {
         if (err) console.log(err)
         updateUser.save()
         console.log(updateUser.progress)
