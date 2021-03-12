@@ -19,6 +19,10 @@ h1, h2, h3 {
 }
 
 .appNameHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #A7D676;
   position: relative;
   padding: 1% 2%;
@@ -48,6 +52,19 @@ h1, h2, h3 {
 .navbar a {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   float: left;
+  display: inline;
+  font-size: 16px;
+  color: grey;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 100%;
+  margin: 0;
+}
+
+.navLogoutLink {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  float: right;
   display: inline;
   font-size: 16px;
   color: grey;
