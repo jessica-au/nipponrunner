@@ -18,6 +18,47 @@ const Hiragana = (props) => {
     const [hiraPage, setHiraPage] = useState(0);
     const [matchedPair, setMatchedPair] = useState({})
 
+    //pulling in user from header
+    const [userProgress, setUserProgress] = useState([])
+
+    const updateCorrect = (incomingHira) => {
+        let thisHira = incomingHira.bango - 1
+        if(userProgress && userProgress[thisHira]){
+            userProgress[thisHira].value = userProgress[thisHira].value + 1
+        } else {
+            const newProg = {
+                id: incomingHira.bango,
+                value: 1
+            }
+            if(userProgress){ 
+                userProgress.push(newProg)
+            } else {
+                setUserProgress(newProg)
+            }
+        }
+        console.log(`updated progress: ${userProgress}`)
+    }
+
+    const updateIncorrect = (incomingHira) => {
+        let thisHira = incomingHira.bango - 1
+        if(userProgress !== undefined && userProgress[thisHira] !== undefined && incomingHira.bango == userProgress[thisHira].id){
+            userProgress[thisHira].value = userProgress[thisHira].value - 1
+        } else {
+            const newProg = {
+                id: incomingHira.bango,
+                value: 1
+            }
+            if(userProgress){ 
+                userProgress.push(newProg)
+            } else {
+                setUserProgress(newProg)
+            }
+        }
+        
+        
+        console.log(`updated progress: ${userProgress}`)
+    }
+
     const handleClick = (incomingHira, incomingType) => {
         //console.log(incomingHira, incomingType)
         if (pairingType && pairingHira) {
@@ -29,6 +70,7 @@ const Hiragana = (props) => {
                 setPairingHira(null);
                 setPairingType(null);
                 setMatchedPair({ ...matchedPair, [incomingHira._id]: incomingHira });
+                updateCorrect(incomingHira)
                 console.log('matched')
             } else if (pairingType == incomingType) {
                 //condition: new button of same type clicked
@@ -40,6 +82,7 @@ const Hiragana = (props) => {
                 //reset the pairingHira and pairingType
                 setPairingHira(null);
                 setPairingType(null);
+                updateIncorrect(incomingHira)
                 console.log('incorrect match')
             }
 
@@ -50,6 +93,11 @@ const Hiragana = (props) => {
         }
     }
     //console.log(matchedPair);
+    console.log(userProgress)
+
+    useEffect(()=>{
+        setUserProgress(props.user.progress)
+    }, [])
 
     useEffect(() => {
         const fetchHira = async (req, res) => {
@@ -67,6 +115,14 @@ const Hiragana = (props) => {
         if (Math.floor(hiraPoints / 5) !== hiraPage) {
             setHiraPage(Math.floor(hiraPoints / 5))
         }
+    }, [hiraPoints]);
+
+    useEffect(() => {
+        const sendUpdate = async() => {
+            console.log(userProgress)
+            await axios.put(`${REACT_APP_SERVER_URL}/users/update`)
+        }
+        sendUpdate()
     }, [hiraPoints]);
 
     //populating divs with .ji and .romaji data 5 hiragana at a time 
