@@ -50,7 +50,7 @@ const Signup  = () => {
             }
         }
     }
-    if(redirect) return <Redirect to="/login/"/>
+    if(redirect) return <Redirect to="/login"/>
 
     return (
         <div className="signupComponent">
