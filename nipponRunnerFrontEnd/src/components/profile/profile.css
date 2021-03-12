@@ -1,0 +1,80 @@
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #F8C78D;
+    border-style: none;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 5%;
+    font-family: 'fredoka One', cursive;
+    color: white;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+  }
+
+  button:hover {
+    background-color: #A7D676;
+  }
+  
+  button:clicked {
+    border-style:solid;
+    border-color: black;
+    border-radius: 8px;
+  }
+
+.profilePage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1em;
+    height: 800px;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profileHomeButton {
+    display: flex;
+}
+
+.profileGakkouButton {
+    display: flex;
+}
+
+.profileStatsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navButtons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.valueValue {
+    display: none;
+}

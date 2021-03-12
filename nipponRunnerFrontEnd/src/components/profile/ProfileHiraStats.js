@@ -7,13 +7,12 @@ const {REACT_APP_SERVER_URL} = process.env
 const ProfileHiraStats = (props) => {
 
     const { handleLogout, user } = props
-    const { progress } = user
+
     const [allHira, setAllHira] = useState([])
 
     useEffect(() => {
         const fetchHira = async (req, res) => {
             const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
-            console.log(response)
             const data = await response.data
             setAllHira(data)
         }
@@ -21,49 +20,36 @@ const ProfileHiraStats = (props) => {
 
     }, [])
 
-    const hiraArray = allHira.map((item, index) => {
-        return <StatBox key={index} item={item} progress={user.progress[index]}/>
-    })
+    let hiraArray;
+
+    if(props.user.progress && allHira){
+        hiraArray = allHira.map((item, index) => {
+            if(props.user.progress[index] !== undefined){
+            return <StatBox key={index} item={item} progress={props.user.progress[index]}/>
+            } else {
+                return <div className="charBox">{item.ji}</div>
+            }
+        })
+    }
 
     return (
         <div className="hiraStats">
             <div className="hiraChart">
                 <div className="hiraChartLeft">
                     <div className="row">
-                        {hiraArray}
-                        {/* <div className={"charBox"} id="1">
-                            あ
-                        </div>
-                        <div className="charBox" id="2">
-                            い
-                        </div>
-                        <div className="charBox" id="3">
-                            う
-                        </div>
-                        <div className="charBox" id="4">
-                            え
-                        </div>
-                        <div className="charBox" id="5">
-                            お
-                        </div>
+                        {hiraArray[0]}
+                        {hiraArray[1]}
+                        {hiraArray[2]}
+                        {hiraArray[3]}
+                        {hiraArray[4]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="6">
-                            か
-                        </div>
-                        <div className="charBox" id="7">
-                            き
-                        </div>
-                        <div className="charBox" id="8">
-                            く
-                        </div>
-                        <div className="charBox" id="9">
-                            け
-                        </div>
-                        <div className="charBox" id="10">
-                            こ
-                        </div>
+                        {hiraArray[5]}
+                        {hiraArray[6]}
+                        {hiraArray[7]}
+                        {hiraArray[8]}
+                        {hiraArray[9]}
                     </div>
 
                     <div className="row">
@@ -442,7 +428,7 @@ const ProfileHiraStats = (props) => {
                             <div className="charBox" id="104">
                                 りょ
                             </div>
-    </div> */}
+    </div>
                     </div>
                 </div> 
             </div>
