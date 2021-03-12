@@ -15,6 +15,8 @@ router.get('/info', ctrl.user.info)
 
 router.put('/update', ctrl.user.update)
 
-router.get('/:id', ctrl.user.user)
+// router.get('/update', ctrl.user.getUpdate)
+
+// router.get('/:id', ctrl.user.user)
 
 module.exports = router
