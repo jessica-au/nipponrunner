@@ -17,7 +17,7 @@ const Profile = (props) => {
     }
 
     const userData = user ?
-    (<div className="information">
+    (<div className="informationProfile">
         <div className="infoLeft">
             <img className="infoImg" src={sakura}/>
             <Link to="/profile/stats">
@@ -42,7 +42,8 @@ const Profile = (props) => {
 
     return (
         <div className="profilePage">
-            <h1> Profile (プロフィール) </h1>
+            <h1 className="profileTitle"> Profile </h1><br/>
+            <h2 className="profileTitle2">(プロフィール) </h2>
             <div>
                 {user ? userData : errorDiv()}
             </div>
