@@ -7,7 +7,7 @@ const {REACT_APP_SERVER_URL} = process.env
 const ProfileHiraStats = (props) => {
 
     const { handleLogout, user } = props
-    const { progress } = user
+
     const [allHira, setAllHira] = useState([])
 
     useEffect(() => {
@@ -20,48 +20,36 @@ const ProfileHiraStats = (props) => {
 
     }, [])
 
-    const hiraArray = allHira.map((item, index) => {
-        return <StatBox key={index} item={item} progress={user.progress[index]}/>
-    })
+    let hiraArray;
+
+    if(props.user.progress && allHira){
+        hiraArray = allHira.map((item, index) => {
+            if(props.user.progress[index] !== undefined){
+            return <StatBox key={index} item={item} progress={props.user.progress[index]}/>
+            } else {
+                return <div className="charBox">{item.ji}</div>
+            }
+        })
+    }
 
     return (
         <div className="hiraStats">
             <div className="hiraChart">
                 <div className="hiraChartLeft">
                     <div className="row">
-                        <div id="1">
-                            {hiraArray[0].progress ? hiraArray[0] : "あ"}
-                        </div>
-                        <div id="2">
-                            {!hiraArray[1] ? "い" : hiraArray[1]}
-                        </div>
-                        <div id="3">
-                            {!hiraArray[2] ? "う" : hiraArray[2]}
-                        </div>
-                        <div className="charBox" id="4">
-                            {hiraArray[3] ? hiraArray[3] : "え"}
-                        </div>
-                        <div className="charBox" id="5">
-                            {!hiraArray[4] ? "お" : hiraArray[4]}
-                        </div>
+                        {hiraArray[0]}
+                        {hiraArray[1]}
+                        {hiraArray[2]}
+                        {hiraArray[3]}
+                        {hiraArray[4]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="6">
-                            か
-                        </div>
-                        <div className="charBox" id="7">
-                            き
-                        </div>
-                        <div className="charBox" id="8">
-                            く
-                        </div>
-                        <div className="charBox" id="9">
-                            け
-                        </div>
-                        <div className="charBox" id="10">
-                            こ
-                        </div>
+                        {hiraArray[5]}
+                        {hiraArray[6]}
+                        {hiraArray[7]}
+                        {hiraArray[8]}
+                        {hiraArray[9]}
                     </div>
 
                     <div className="row">
