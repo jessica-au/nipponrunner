@@ -13,7 +13,6 @@ const ProfileHiraStats = (props) => {
     useEffect(() => {
         const fetchHira = async (req, res) => {
             const response = await axios.get(`${REACT_APP_SERVER_URL}/hira/allHira`)
-            console.log(response)
             const data = await response.data
             setAllHira(data)
         }
@@ -31,19 +30,19 @@ const ProfileHiraStats = (props) => {
                 <div className="hiraChartLeft">
                     <div className="row">
                         <div id="1">
-                            {hiraArray[0]}
+                            {hiraArray[0].progress ? hiraArray[0] : "あ"}
                         </div>
                         <div id="2">
-                            {hiraArray[1]}
+                            {!hiraArray[1] ? "い" : hiraArray[1]}
                         </div>
                         <div id="3">
-                            {hiraArray[2] ? hiraArray[2] : "う"}
+                            {!hiraArray[2] ? "う" : hiraArray[2]}
                         </div>
                         <div className="charBox" id="4">
                             {hiraArray[3] ? hiraArray[3] : "え"}
                         </div>
                         <div className="charBox" id="5">
-                            お
+                            {!hiraArray[4] ? "お" : hiraArray[4]}
                         </div>
                     </div>
 
