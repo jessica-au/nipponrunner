@@ -86,13 +86,18 @@ const info = (req,res) => {
 
 const update = (req, res) => {
     console.log(`>>>> inside user ctrlr update`)
-     db.User.findOneAndUpdate(req.user, req.user.progress, (err, updateUser) => {
+    console.log(req.body)
+     db.User.findOneAndUpdate(req.body, req.body.progress, (err, updateUser) => {
         if (err) console.log(err)
         updateUser.save()
-        console.log(updateUser.progress)
-        console.log(updateUser)
         res.json(updateUser)
     })
+}
+
+const getUpdate = (req, res) => {
+    console.log(`>>>> inside user ctrlr getUpdate`)
+    console.log(req.user)
+        res.json(req.user)
 }
 
 const user = (req, res) => {
@@ -103,4 +108,4 @@ const user = (req, res) => {
     })
 }
 
-module.exports = { test, register, login, profile, info, update, user }
+module.exports = { test, register, login, profile, info, update, getUpdate, user }
