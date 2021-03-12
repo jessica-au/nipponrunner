@@ -53,244 +53,116 @@ const ProfileHiraStats = (props) => {
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="11">
-                            さ
-                        </div>
-                        <div className="charBox" id="12">
-                            し
-                        </div>
-                        <div className="charBox" id="13">
-                            す
-                        </div>
-                        <div className="charBox" id="14">
-                            せ
-                        </div>
-                        <div className="charBox" id="15">
-                            そ
-                        </div>
+                        {hiraArray[10]}
+                        {hiraArray[11]}
+                        {hiraArray[12]}
+                        {hiraArray[13]}
+                        {hiraArray[14]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="16">
-                            た
-                        </div>
-                        <div className="charBox" id="17">
-                            ち
-                        </div>
-                        <div className="charBox" id="18">
-                            つ
-                        </div>
-                        <div className="charBox" id="19">
-                            て
-                        </div>
-                        <div className="charBox" id="20">
-                            と
-                        </div>
+                        {hiraArray[15]}
+                        {hiraArray[16]}
+                        {hiraArray[17]}
+                        {hiraArray[18]}
+                        {hiraArray[19]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="21">
-                            な
-                        </div>
-                        <div className="charBox" id="22">
-                            に
-                        </div>
-                        <div className="charBox" id="23">
-                            ぬ
-                        </div>
-                        <div className="charBox" id="24">
-                            ね
-                        </div>
-                        <div className="charBox" id="25">
-                            の
-                        </div>
+                        {hiraArray[20]}
+                        {hiraArray[21]}
+                        {hiraArray[22]}
+                        {hiraArray[23]}
+                        {hiraArray[24]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="26">
-                            は
-                        </div>
-                        <div className="charBox" id="27">
-                            ひ
-                        </div>
-                        <div className="charBox" id="28">
-                            ふ
-                        </div>
-                        <div className="charBox" id="29">
-                            へ
-                        </div>
-                        <div className="charBox" id="30">
-                            ほ
-                        </div>
+                        {hiraArray[25]}
+                        {hiraArray[26]}
+                        {hiraArray[27]}
+                        {hiraArray[28]}
+                        {hiraArray[29]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="31">
-                            ま
-                        </div>
-                        <div className="charBox" id="32">
-                            み
-                        </div>
-                        <div className="charBox" id="33">
-                            む
-                        </div>
-                        <div className="charBox" id="34">
-                            め
-                        </div>
-                        <div className="charBox" id="35">
-                            も
-                        </div>
+                        {hiraArray[30]}
+                        {hiraArray[31]}
+                        {hiraArray[32]}
+                        {hiraArray[33]}
+                        {hiraArray[34]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="36">
-                            や
-                        </div>
-
-                        <div className="charBox"></div>
-
-                        <div className="charBox" id="37">
-                            ゆ
-                        </div>
-
-                        <div className="charBox"></div>
-
-                        <div className="charBox" id="38">
-                            よ
-                        </div>
+                        {hiraArray[35]}
+                        {hiraArray[36]}
+                        {hiraArray[37]}
+                        {hiraArray[38]}
+                        {hiraArray[39]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="39">
-                            ら
-                        </div>
-                        <div className="charBox" id="40">
-                            り
-                        </div>
-                        <div className="charBox" id="41">
-                            る
-                        </div>
-                        <div className="charBox" id="42">
-                            れ
-                        </div>
-                        <div className="charBox" id="43">
-                            ろ
-                        </div>
+                        {hiraArray[40]}
+                        {hiraArray[41]}
+                        {hiraArray[42]}
+                        {hiraArray[43]}
+                        {hiraArray[44]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="44">
-                            わ
-                        </div>
-
+                        {hiraArray[45]}
                         <div className="charBox"></div>
                         <div className="charBox"></div>
                         <div className="charBox"></div>
-
-                        <div className="charBox" id="45">
-                            を
-                        </div>
+                        {hiraArray[46]}
                     </div>
 
                     <div className="row">
                         <div className="charBox"></div>
                         <div className="charBox"></div>
-                        <div className="charBox" id="46">
-                            ん
-                        </div>
+                        {hiraArray[47]}
                         <div className="charBox"></div>
                         <div className="charBox"></div>
                         
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="47">
-                            が
-                        </div>
-                        <div className="charBox" id="48">
-                            ぎ
-                        </div>
-                        <div className="charBox" id="49">
-                            ぐ
-                        </div>
-                        <div className="charBox" id="50">
-                            げ
-                        </div>
-                        <div className="charBox" id="51">
-                            ご
-                        </div>
+                        {hiraArray[48]}
+                        {hiraArray[49]}
+                        {hiraArray[50]}
+                        {hiraArray[51]}
+                        {hiraArray[52]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="52">
-                            ざ
-                        </div>
-                        <div className="charBox" id="53">
-                            じ
-                        </div>
-                        <div className="charBox" id="54">
-                            ず
-                        </div>
-                        <div className="charBox" id="55">
-                            ぜ
-                        </div>
-                        <div className="charBox" id="56">
-                            ぞ
-                        </div>
+                        {hiraArray[53]}
+                        {hiraArray[54]}
+                        {hiraArray[55]}
+                        {hiraArray[56]}
+                        {hiraArray[57]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="57">
-                            だ
-                        </div>
-                        <div className="charBox" id="58">
-                            ぢ
-                        </div>
-                        <div className="charBox" id="59">
-                            づ
-                        </div>
-                        <div className="charBox" id="60">
-                            で
-                        </div>
-                        <div className="charBox" id="61">
-                            ど
-                        </div>
+                        {hiraArray[58]}
+                        {hiraArray[59]}
+                        {hiraArray[60]}
+                        {hiraArray[61]}
+                        {hiraArray[62]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="62">
-                            ば
-                        </div>
-                        <div className="charBox" id="63">
-                            び
-                        </div>
-                        <div className="charBox" id="64">
-                            ぶ
-                        </div>
-                        <div className="charBox" id="65">
-                            べ
-                        </div>
-                        <div className="charBox" id="66">
-                            ぼ
-                        </div>
+                        {hiraArray[63]}
+                        {hiraArray[64]}
+                        {hiraArray[65]}
+                        {hiraArray[66]}
+                        {hiraArray[67]}
                     </div>
 
                     <div className="row">
-                        <div className="charBox" id="67">
-                            ぱ
-                        </div>
-                        <div className="charBox" id="68">
-                            ぴ
-                        </div>
-                        <div className="charBox" id="69">
-                            ぷ
-                        </div>
-                        <div className="charBox" id="70">
-                            ぺ
-                        </div>
-                        <div className="charBox" id="71">
-                            ぽ
-                        </div>
+                        {hiraArray[68]}
+                        {hiraArray[69]}
+                        {hiraArray[70]}
+                        {hiraArray[71]}
+                        {hiraArray[72]}
                     </div>
                 </div>
 
@@ -299,136 +171,70 @@ const ProfileHiraStats = (props) => {
                     <div className="morphSounds">
 
                         <div className="row">
-                            <div className="charBox" id="72">
-                                きゃ
-                            </div>
-                            <div className="charBox" id="73">
-                                きゅ
-                            </div>
-                            <div className="charBox" id="74">
-                                きょ
-                            </div>
+                            {hiraArray[73]}
+                            {hiraArray[74]}
+                            {hiraArray[75]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="75">
-                                ぎゃ
-                            </div>
-                            <div className="charBox" id="76">
-                                ぎゅ
-                            </div>
-                            <div className="charBox" id="77">
-                                ぎょ
-                            </div>
+                            {hiraArray[76]}
+                            {hiraArray[77]}
+                            {hiraArray[78]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="78">
-                                しゃ
-                            </div>
-                            <div className="charBox" id="79">
-                                しゅ
-                            </div>
-                            <div className="charBox" id="80">
-                                しょ
-                            </div>
+                            {hiraArray[79]}
+                            {hiraArray[80]}
+                            {hiraArray[81]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="81">
-                                じゃ
-                            </div>
-                            <div className="charBox" id="82">
-                                じゅ
-                            </div>
-                            <div className="charBox" id="83">
-                                じょ
-                            </div>
+                            {hiraArray[82]}
+                            {hiraArray[83]}
+                            {hiraArray[84]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="84">
-                                ちゃ
-                            </div>
-                            <div className="charBox" id="85">
-                                ちゅ
-                            </div>
-                            <div className="charBox" id="86">
-                                ちょ
-                            </div>
+                            {hiraArray[85]}
+                            {hiraArray[86]}
+                            {hiraArray[87]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="87">
-                                にゃ
-                            </div>
-                            <div className="charBox" id="88">
-                                にゅ
-                            </div>
-                            <div className="charBox" id="89">
-                                にょ
-                            </div>
+                            {hiraArray[88]}
+                            {hiraArray[89]}
+                            {hiraArray[90]}
                         </div>
                         
                         <div className="row">
-                            <div className="charBox" id="90">
-                                ひゃ
-                            </div>
-                            <div className="charBox" id="91">
-                                ひゅ
-                            </div>
-                            <div className="charBox" id="92">
-                                ひょ
-                            </div>
+                            {hiraArray[91]}
+                            {hiraArray[92]}
+                            {hiraArray[93]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="93">
-                                びゃ
-                            </div>
-                            <div className="charBox" id="94">
-                                びゅ
-                            </div>
-                            <div className="charBox" id="95">
-                                びょ
-                            </div>
+                            {hiraArray[94]}
+                            {hiraArray[95]}
+                            {hiraArray[96]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="96">
-                                ぴゃ
-                            </div>
-                            <div className="charBox" id="97">
-                                ぴゅ
-                            </div>
-                            <div className="charBox" id="98">
-                                ぴょ
-                            </div>
+                            {hiraArray[97]}
+                            {hiraArray[98]}
+                            {hiraArray[99]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="99">
-                                みゃ
-                            </div>
-                            <div className="charBox" id="100">
-                                みゅ
-                            </div>
-                            <div className="charBox" id="101">
-                                みょ
-                            </div>
+                            {hiraArray[100]}
+                            {hiraArray[101]}
+                            {hiraArray[102]}
                         </div>
 
                         <div className="row">
-                            <div className="charBox" id="102">
-                                りゃ
-                            </div>
-                            <div className="charBox" id="103">
-                                りゅ
-                            </div>
-                            <div className="charBox" id="104">
-                                りょ
-                            </div>
-    </div>
+                            {hiraArray[103]}
+                            {hiraArray[104]}
+                            {hiraArray[105]}
+                        </div>
                     </div>
                 </div> 
             </div>
