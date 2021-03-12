@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileHiraStats from './ProfileHiraStats'
 import './profile.css'
+import sakura from '../../images/sakura.png'
 
 const Profile = (props) => {
     console.log(`>>>> inside Profile component`)
@@ -18,7 +19,7 @@ const Profile = (props) => {
     const userData = user ?
     (<div className="information">
         <div className="infoLeft">
-            <img className="infoImg" src="../images/sakura.png"/>
+            <img className="infoImg" src={sakura}/>
             <Link to="/profile/stats">
                 <button type="button" className="profileStatsButton">
                     View Progress (能力) 
