@@ -1,5 +1,5 @@
 //imports
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios'
 const shuffle = require('shuffle-array')
 
@@ -18,9 +18,6 @@ const Hiragana = (props) => {
     const [hiraPage, setHiraPage] = useState(0);
     const [matchedPair, setMatchedPair] = useState({})
 
-
-
-    //set up click function to set pairingHira value to key from button, will be used in conditional logic to determine if correct match between romaji and ji
     const handleClick = (incomingHira, incomingType) => {
         //console.log(incomingHira, incomingType)
         if (pairingType && pairingHira) {
@@ -28,7 +25,6 @@ const Hiragana = (props) => {
                 //condition: correct guess
                 //grey out or disable button AND reset pairingHira and pairingType
                 //also add point to state for hiraGrouping
-
                 setHiraPoints(hiraPoints + 1);
                 setPairingHira(null);
                 setPairingType(null);
@@ -53,9 +49,7 @@ const Hiragana = (props) => {
             //console.log('this is pairing: ', incomingHira)
         }
     }
-
     //console.log(matchedPair);
-
 
     useEffect(() => {
         const fetchHira = async (req, res) => {
@@ -67,49 +61,70 @@ const Hiragana = (props) => {
         }
         fetchHira();
         // console.log(allHira[0])
-
     }, []);
 
     useEffect(() => {
         if (Math.floor(hiraPoints / 5) !== hiraPage) {
             setHiraPage(Math.floor(hiraPoints / 5))
         }
-
     }, [hiraPoints]);
 
     //populating divs with .ji and .romaji data 5 hiragana at a time 
-    const copyHiras = [
-        allHira.slice(0, 5),
-        allHira.slice(5, 10),
-        allHira.slice(10, 15),
-        allHira.slice(15, 20),
-        allHira.slice(20, 25),
-        allHira.slice(25, 30),
-        allHira.slice(30, 35),
-        allHira.slice(35, 40),
-        allHira.slice(40, 45),
-        allHira.slice(45, 50),
-        allHira.slice(50, 55),
-        allHira.slice(55, 60),
-        allHira.slice(60, 65),
-        allHira.slice(65, 70),
-        allHira.slice(70, 75),
-        allHira.slice(75, 80),
-        allHira.slice(80, 85),
-        allHira.slice(85, 90),
-        allHira.slice(90, 95),
-        allHira.slice(95, 100),
-        allHira.slice(100, 105),
-    ]
+    const shuffledHirasArrayOne = useMemo(() => [
+        shuffle(allHira.slice(0, 5)),
+        shuffle(allHira.slice(5, 10)),
+        shuffle(allHira.slice(10, 15)),
+        shuffle(allHira.slice(15, 20)),
+        shuffle(allHira.slice(20, 25)),
+        shuffle(allHira.slice(25, 30)),
+        shuffle(allHira.slice(30, 35)),
+        shuffle(allHira.slice(35, 40)),
+        shuffle(allHira.slice(40, 45)),
+        shuffle(allHira.slice(45, 50)),
+        shuffle(allHira.slice(50, 55)),
+        shuffle(allHira.slice(55, 60)),
+        shuffle(allHira.slice(60, 65)),
+        shuffle(allHira.slice(65, 70)),
+        shuffle(allHira.slice(70, 75)),
+        shuffle(allHira.slice(75, 80)),
+        shuffle(allHira.slice(80, 85)),
+        shuffle(allHira.slice(85, 90)),
+        shuffle(allHira.slice(90, 95)),
+        shuffle(allHira.slice(95, 100)),
+        shuffle(allHira.slice(100, 105)),
+    ], [allHira])
+
+    const shuffledHirasArrayTwo = useMemo(()=>[
+        shuffle(allHira.slice(0, 5)),
+        shuffle(allHira.slice(5, 10)),
+        shuffle(allHira.slice(10, 15)),
+        shuffle(allHira.slice(15, 20)),
+        shuffle(allHira.slice(20, 25)),
+        shuffle(allHira.slice(25, 30)),
+        shuffle(allHira.slice(30, 35)),
+        shuffle(allHira.slice(35, 40)),
+        shuffle(allHira.slice(40, 45)),
+        shuffle(allHira.slice(45, 50)),
+        shuffle(allHira.slice(50, 55)),
+        shuffle(allHira.slice(55, 60)),
+        shuffle(allHira.slice(60, 65)),
+        shuffle(allHira.slice(65, 70)),
+        shuffle(allHira.slice(70, 75)),
+        shuffle(allHira.slice(75, 80)),
+        shuffle(allHira.slice(80, 85)),
+        shuffle(allHira.slice(85, 90)),
+        shuffle(allHira.slice(90, 95)),
+        shuffle(allHira.slice(95, 100)),
+        shuffle(allHira.slice(100, 105)),
+    ], [allHira])
     //finish creating all slices for hiragana
 
-  
-    const hiraListShuffled = shuffle(copyHiras[hiraPage])
     
-
-    const hiraList = hiraListShuffled.map((copyHira) => {
-
-        const hasMatched = matchedPair[copyHira._id]
+    //hiralist is the hirasArray array mapped through at the value of hirapage, which corresponds to the index of the hirasArray array
+    const hiraList = shuffledHirasArrayOne[hiraPage].map((copyHira) => {
+        // hasMatched looks at the matchedPair state at the index of that copyHira instance's id
+        // if there is a key/value in the matchedPair state object, disable the button for that hiragana. otherwise keep it enabled
+        const hasMatched = matchedPair[copyHira._id];
 
         return <button
             disabled={hasMatched}
@@ -119,14 +134,11 @@ const Hiragana = (props) => {
             {copyHira.ji}</button>
     }
     );
-    
-    const romajiListShuffled = shuffle(copyHiras[hiraPage])
 
-    const romajiList = romajiListShuffled.map((copyHira) => {
+    const romajiList = shuffledHirasArrayTwo[hiraPage].map((copyHira) => {
 
         const hasMatched = matchedPair[copyHira._id]
        
-
         return <button
             disabled={hasMatched}
             key={copyHira.romaji}
