@@ -22,7 +22,7 @@ function StatBox(props) {
 
     return (
         <div className={color}>
-            {item.ji}
+            {item.ji}<p className="valueValue">({progress.value})</p>
         </div>
     )
 }
