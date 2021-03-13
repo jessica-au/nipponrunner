@@ -2,7 +2,7 @@
 require('dotenv').config() //environment setup
 const express = require('express') //express package
 const cors = require('cors') //cross origin resouce sharing allows non-origin api fetching which is usually blocked by browsers
-const passport = require('passport') //passport package to authenticate users
+const passport = require('passport') //passport package to authenticate users b
 require('./config/passport')(passport) //sets custom configuration for passport
 const routes = require('./routes') //route directory to clean up request 
 
