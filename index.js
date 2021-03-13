@@ -9,6 +9,7 @@ const routes = require('./routes') //route directory to clean up request
 //set up app
 const app = express() //setting express invocation on "app" variable
 const PORT = process.env.PORT || 8000 //allows application to run on environment port OR localhost 8000
+const { DEPLOYED_REACT_URL } = process.env
 
 //middleware
 app.use(express.urlencoded({ extended: false })) //form body parser
