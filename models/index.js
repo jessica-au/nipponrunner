@@ -15,9 +15,9 @@ mongoose.connect(DATABASE_URL, {
     useCreateIndex: true
   });
 
-mongoose.connect(DATABASE_URL, configOptions)
-    .then(() => console.log('MongoDB successfully connected...'))
-    .catch(err => console.log('MongoDB connection error:', err))
+// mongoose.connect(DATABASE_URL, configOptions)
+//     .then(() => console.log('MongoDB successfully connected...'))
+//     .catch(err => console.log('MongoDB connection error:', err))
 
 module.exports = {
     User: require('./user'),
