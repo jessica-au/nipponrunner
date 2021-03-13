@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 8000 //allows application to run on environment
 //middleware
 app.use(express.urlencoded({ extended: false })) //form body parser
 app.use(express.json()) //invoking automatic json parsing
-app.use(cors()) //allowing CORS requests to bypass browser firewall
+// allow from only specific endpoints
+const corsOptions = { origin: ['http:localhost:3000', `${DEPLOYED_REACT_URL}`]}
+app.use(cors(corsOptions))
 app.use(passport.initialize()) //starts passport package for auth
 
 //API routes
