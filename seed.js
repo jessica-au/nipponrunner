@@ -113,3 +113,5 @@ const hiraganaSeed = async() => {
 }
 
 hiraganaSeed()
+
+module.exports = hiraganaSeed

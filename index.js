@@ -9,14 +9,14 @@ const routes = require('./routes') //route directory to clean up request
 //set up app
 const app = express() //setting express invocation on "app" variable
 const PORT = process.env.PORT || 8000 //allows application to run on environment port OR localhost 8000
-const { DEPLOYED_REACT_URL } = process.env
+// const { DEPLOYED_REACT_URL } = process.env
 
 //middleware
 app.use(express.urlencoded({ extended: false })) //form body parser
 app.use(express.json()) //invoking automatic json parsing
 // allow from only specific endpoints
-const corsOptions = { origin: ['http:localhost:3000', `${DEPLOYED_REACT_URL}`]}
-app.use(cors(corsOptions))
+// const corsOptions = { origin: ['http://localhost:3000', `${DEPLOYED_REACT_URL}`]}
+app.use(cors())
 app.use(passport.initialize()) //starts passport package for auth
 
 //API routes
