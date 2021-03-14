@@ -84,13 +84,13 @@ const info = (req,res) => {
     res.json({ username, experience, progress })
 }
 
-const update = (req, res) => {
+const update = async(req, res) => {
     console.log(`>>>> inside user ctrlr update`)
-     db.User.findOneAndUpdate(req.user, req.user.progress, (err, updateUser) => {
+    console.log(req.body)
+     await db.User.findOneAndUpdate(req.body, req.body.progress, (err, updateUser) => {
         if (err) console.log(err)
+        updateUser.progress = req.body
         updateUser.save()
-        console.log(updateUser.progress)
-        console.log(updateUser)
         res.json(updateUser)
     })
 }
